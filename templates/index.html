@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{url_for('static', filename='styles/index.css')}}">
+        <!-- Font awesome for search icon -->
+        <script src="https://kit.fontawesome.com/7f6d2012d0.js" ></script>
+    </head>
+    <body>
+    <div class="container">
+        <form action="{{ url_for('search') }}" method="post" class="search-bar">
+            <input type="text" placeholder="search" name="srch">
+            <button type="submit">  <i class="fas fa-search"></i></button>
+        </form>
+    </div>    
+  </body>
+</html>
