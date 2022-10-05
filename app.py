@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql.expression import func
-from random import randint, random
+from random import randint, choice
 
 # Initialize app
 app = Flask(__name__)
@@ -36,7 +36,7 @@ def search():
 
         # Random sample
         # Get a random sample of 5 of elements and query to display those results underneath
-        random_patents = Patent.query.order_by(func.random()).limit(5).all()
+        random_patents = [choice(results) for i in range(5)]
         return render_template('search_results.html', patent_list=results, pct=percent_formatted, sample=random_patents)
     else:
         return render_template('index.html')
