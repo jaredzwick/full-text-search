@@ -35,9 +35,8 @@ def search():
         percent_formatted= round(percent_recall, 2)
 
         # Random sample
-        # Get a random number between (5, 100) of elements and query for that many random patents to display those results underneath
-        num_of_random_rows = randint(5,100)
-        random_patents = Patent.query.order_by(func.random()).limit(num_of_random_rows).all()
+        # Get a random sample of 5 of elements and query to display those results underneath
+        random_patents = Patent.query.order_by(func.random()).limit(5).all()
         return render_template('search_results.html', patent_list=results, pct=percent_formatted, sample=random_patents)
     else:
         return render_template('index.html')
